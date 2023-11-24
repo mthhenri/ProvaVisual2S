@@ -75,4 +75,48 @@ public class TarefaController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+
+    [HttpGet]
+    [Route("concluidas")]
+    public IActionResult ListarConcluidas()
+    {
+        try
+        {
+            List<Tarefa> tarefas = _context.Tarefas.Include(x => x.Categoria).ToList();
+            List<Tarefa> tarefasConcluidas = new();
+            foreach (var tarefa in tarefas)
+            {
+                if(tarefa.Estado.Equals("Concluída")){
+                    tarefasConcluidas.Add(tarefa);
+                }
+            }
+            return Ok(tarefasConcluidas);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpGet]
+    [Route("naoconcluidas")]
+    public IActionResult ListarNaoConcluidas()
+    {
+        try
+        {
+            List<Tarefa> tarefas = _context.Tarefas.Include(x => x.Categoria).ToList();
+            List<Tarefa> tarefasNaoConcluidas = new();
+            foreach (var tarefa in tarefas)
+            {
+                if(!tarefa.Estado.Equals("Concluída")){
+                    tarefasNaoConcluidas.Add(tarefa);
+                }
+            }
+            return Ok(tarefasNaoConcluidas);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 }

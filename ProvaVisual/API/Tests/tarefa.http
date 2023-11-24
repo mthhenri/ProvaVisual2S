@@ -15,3 +15,9 @@ Content-Type: application/json
 
 ### Atualizar Estado da Tarefa ###
 PATCH {{base_url}}/alterar/1
+
+### Listar Tarefas ###
+GET {{base_url}}/concluidas
+
+### Listar Tarefas ###
+GET {{base_url}}/naoconcluidas
