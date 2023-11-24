@@ -13,3 +13,5 @@ Content-Type: application/json
   "CategoriaId": 4
 }
 
+### Atualizar Estado da Tarefa ###
+PATCH {{base_url}}/alterar/1

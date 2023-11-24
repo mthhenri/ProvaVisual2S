@@ -52,4 +52,27 @@ public class TarefaController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+
+    [HttpPatch("alterar/{id}")]
+    public IActionResult Alterar([FromRoute] int id){
+        try
+        {
+            Tarefa? tarefa = _context.Tarefas.Find(id);
+            if(tarefa == null){
+                return NotFound();
+            }
+            if(tarefa.Estado.Equals("Não iniciada")){
+                tarefa.Estado = "Em andamento";
+            } else if(tarefa.Estado.Equals("Em andamento")) {
+                tarefa.Estado = "Concluída";
+            }
+            _context.Tarefas.Update(tarefa);
+            _context.SaveChanges();
+            return Ok(tarefa);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 }
