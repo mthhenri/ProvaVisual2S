@@ -13,11 +13,25 @@ Content-Type: application/json
   "CategoriaId": 4
 }
 
+### Buscar Tarefa ###
+GET {{base_url}}/buscar/1
+
+### Atualizar Tarefa (WIP) ###
+
+// PUT {{base_url}}/atualizar/4
+// Content-Type: application/json
+
+{
+  "Titulo": "Ir ao mossar",
+  "Descricao": "Ir ao mossar no lugar bem legal lá",
+  "CategoriaId": 3
+}
+
 ### Atualizar Estado da Tarefa ###
 PATCH {{base_url}}/alterar/1
 
-### Listar Tarefas ###
-GET {{base_url}}/concluidas
+### Listar Tarefas Concluidas ###
+GET {{base_url}}/listarconcluidas
 
-### Listar Tarefas ###
-GET {{base_url}}/naoconcluidas
+### Listar Tarefas Não Concluidas ###
+GET {{base_url}}/listarnaoconcluidas

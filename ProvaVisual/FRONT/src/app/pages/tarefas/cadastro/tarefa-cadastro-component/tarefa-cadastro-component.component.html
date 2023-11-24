@@ -1,0 +1,49 @@
+<div class="container">
+    <span class="title">
+        {{ acaoPage }}
+    </span>
+    <div class="spacer"></div>
+    <div>
+        <div class="formCriarTarefa">
+            <mat-form-field class="formTarefa">
+                <mat-label> Título </mat-label>
+                <div>
+                    <input matInput [formControl]="titulo" type="text">
+                </div>
+            </mat-form-field>
+            <mat-form-field class="formTarefa" id="desc">
+                <mat-label> Descrição </mat-label>
+                <div>
+                    <input matInput [formControl]="descricao" type="text">
+                </div>
+            </mat-form-field>
+            <mat-form-field class="formTarefa">
+                <mat-label> Categoria </mat-label>
+                <div>
+                    <mat-select [(value)]="categoria" type="text">
+                        <mat-option></mat-option>
+                        <mat-option *ngFor="let categoria of categorias" value="{{categoria.nome}}"> {{categoria.nome}} </mat-option>
+                    </mat-select>
+                </div>
+            </mat-form-field>
+        </div>
+        <div class="buttons">
+            <button mat-button class="btnSave" (click)="salvarTarefa()">
+                <mat-icon>
+                    {{ iconBtn }}
+                </mat-icon>
+                <span>
+                    {{ acaoBtn }}
+                </span>
+            </button>
+            <button mat-button class="btnVoltar" (click)="voltar()">
+                <mat-icon>
+                    undo
+                </mat-icon>
+                <span>
+                    Voltar
+                </span>
+            </button>
+        </div>
+    </div>
+</div>

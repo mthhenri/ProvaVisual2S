@@ -1,0 +1,76 @@
+.container {
+    height: calc(100% - 64px);
+    margin: 25px;
+}
+
+.title {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.spacer {
+    margin: 50px;
+}
+
+.contentTarefaList {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.contentTarefaListText {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.tarefaTittle {
+    font-size: 18px;
+}
+
+.tarefaNI {
+    color: red;
+}
+
+.tarefaEA {
+    color: yellow;
+}
+
+.tarefaC {
+    color: green;
+}
+
+.btnIconAdd {
+    background-color: purple;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 15px;
+}
+
+.listarDiferentes {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+}
+
+.btnListarAll{
+    background-color: lightgray;
+    color: black;
+    margin-right: 20px;
+}
+
+.btnListarDone{
+    background-color: lightgreen;
+    color: black;
+    margin-right: 20px;
+}
+
+.btnListarUndone{
+    background-color: lightpink;
+    color: black;
+    margin-right: 20px;
+}

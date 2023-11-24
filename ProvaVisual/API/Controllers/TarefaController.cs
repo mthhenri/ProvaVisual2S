@@ -53,6 +53,56 @@ public class TarefaController : ControllerBase
         }
     }
 
+    [HttpGet("buscar/{id}")]
+    public IActionResult Buscar([FromRoute] int id){
+        try
+        {
+            Tarefa? tarefa = _context.Tarefas.Find(id);
+            if(tarefa == null){
+                return NotFound();
+            }
+            Categoria? categoria = _context.Categorias.Find(tarefa.CategoriaId);
+            if (categoria == null)
+            {
+                return NotFound();
+            }
+            tarefa.Categoria = categoria;
+            return Ok(tarefa);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+    /* Não finalizado
+    [HttpPut]
+    [Route("atualizar/{id}")]
+    public IActionResult Cadastrar([FromRoute] int id, [FromBody] Tarefa tarefa)
+    {
+        try
+        {
+            Tarefa? tarefaDB = _context.Tarefas.Find(id);
+            if(tarefaDB == null){
+                return NotFound();
+            }
+            Categoria? categoria = _context.Categorias.Find(tarefa.CategoriaId);
+            if (categoria == null)
+            {
+                return NotFound();
+            }
+            tarefaDB = tarefa;
+            _context.Tarefas.Update(tarefaDB);
+            _context.SaveChanges();
+            return Created("", tarefa);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    */
+
     [HttpPatch("alterar/{id}")]
     public IActionResult Alterar([FromRoute] int id){
         try
@@ -77,7 +127,7 @@ public class TarefaController : ControllerBase
     }
 
     [HttpGet]
-    [Route("concluidas")]
+    [Route("listarconcluidas")]
     public IActionResult ListarConcluidas()
     {
         try
@@ -99,7 +149,7 @@ public class TarefaController : ControllerBase
     }
 
     [HttpGet]
-    [Route("naoconcluidas")]
+    [Route("listarnaoconcluidas")]
     public IActionResult ListarNaoConcluidas()
     {
         try

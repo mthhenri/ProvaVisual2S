@@ -1,0 +1,43 @@
+.container {
+    height: calc(100% - 64px);
+    margin: 25px;
+}
+
+.title {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.spacer {
+    margin: 50px;
+}
+
+.formCriarTarefa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formTarefa {
+    margin: 25px;
+    width: 450px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.btnSave {
+    background-color: green;
+    margin-right: 50px;
+}
+
+.btnVoltar {
+    background-color: gray;
+}

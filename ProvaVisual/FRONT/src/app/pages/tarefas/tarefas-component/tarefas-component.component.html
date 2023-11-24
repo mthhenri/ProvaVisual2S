@@ -1,0 +1,66 @@
+<div class="container">
+    <span class="title">
+        Tarefas
+    </span>
+    <div class="spacer"></div>
+    <div class="listarDiferentes">
+        <button mat-button class="btnListarAll" (click)="listarTudo()">
+            <mat-icon>
+                assignment
+            </mat-icon>
+            <span>
+                Listar Tudo
+            </span>
+        </button>
+        <button mat-button class="btnListarDone" (click)="listarProntas()">
+            <mat-icon>
+                assignment_turned_in
+            </mat-icon>
+            <span>
+                Concluídas
+            </span>
+        </button>
+        <button mat-button class="btnListarUndone" (click)="listarNaoProntas()">
+            <mat-icon>
+                assignment_late
+            </mat-icon>
+            <span>
+                Não Concluídas
+            </span>
+        </button>
+    </div>
+    <div class="tarefasList">
+        <mat-accordion *ngFor="let tarefa of tarefas">
+            <mat-expansion-panel class="tarefa">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="tarefaTittle">
+                        {{ tarefa.titulo }}
+                    </mat-panel-title>
+                    <mat-panel-description [class]="estadoStatusClass(tarefa)">
+                        {{ tarefa.estado }}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div>
+                    <div class="contentTarefaList">
+                        {{ tarefa.descricao }}
+                        <button mat-button (click)="alterarStatus(tarefa)">
+                            <span class="contentTarefaListText">
+                                {{ encontrarStatus(tarefa) }}
+                            </span>
+                        </button>
+                        <button mat-icon-button (click)="editTarefa(tarefa)">
+                            <mat-icon>
+                                build
+                            </mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <button mat-fab class="btnIconAdd" (click)="addTarefa()">
+            <mat-icon class="iconAdd">
+                add
+            </mat-icon>
+        </button>
+    </div>
+</div>

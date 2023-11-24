@@ -1,0 +1,32 @@
+<mat-toolbar>
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>OnTiming</span>
+    <span class="creator">
+        Feito por Matheus H. Silva
+    </span>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav">
+    <mat-sidenav #sidenav [opened]="true" mode="side" position="start">
+        <mat-list>
+            <mat-list-item>
+                <button mat-button class="btnItemList" (click)="navigateTarefas()">
+                    <mat-icon> description </mat-icon>
+                    <span class="listItemText"> Tarefas </span>
+                </button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button class="btnItemList" (click)="ooops()">
+                    <mat-icon> aspect_ratio </mat-icon>
+                    <span class="listItemText"> Categorias </span>
+                </button>
+            </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet>
+        </router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

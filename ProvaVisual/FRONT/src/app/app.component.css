@@ -1,0 +1,17 @@
+.sidenav {
+    height: calc(100% - 64px);
+}
+
+.listItemText {
+    margin-left: 10px;
+}
+
+.btnItemList {
+    margin: -15px;
+}
+
+.creator {
+    margin-left: auto;
+    font-size: 12px;
+    font-style: italic;
+}
